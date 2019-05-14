@@ -1,17 +1,14 @@
 ---
-reviewers:
-- mikedanese
-title: Labels and Selectors
+title: 레이블과 셀렉터
 content_template: templates/concept
 weight: 40
 ---
 
 {{% capture overview %}}
 
-_Labels_ are key/value pairs that are attached to objects, such as pods.
-Labels are intended to be used to specify identifying attributes of objects that are meaningful and relevant to users, but do not directly imply semantics to the core system.
-Labels can be used to organize and to select subsets of objects. Labels can be attached to objects at creation time and subsequently added and modified at any time.
-Each object can have a set of key/value labels defined. Each Key must be unique for a given object.
+_레이블_ 은 파드와 같은 오브젝트에 연결된 키/값 쌍이다.
+레이블은 사용자에게 의미 있고 관련 있는 오브젝트의 식별 속성을 지정하기 위해 사용되지만 핵심 시스템에 의미를 직접적으로 의미하지는 않는다.
+레이블은 오브젝트의 하위 집합을 구성하고 선택하는 데 사용될 수 있다. 레이블은 생성 시 오브젝트에 연결할 수 있으며, 이후 언제든지 추가 및 수정할 수 있다. 각 오브젝트는 일련의 키/값 레이블을 정의할 수 있다. 각 키는 주어진 오브젝트에 대해 고유해야 한다.
 
 ```json
 "metadata": {
