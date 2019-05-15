@@ -19,26 +19,23 @@ _레이블_ 은 파드와 같은 오브젝트에 연결된 키/값 쌍이다.
 }
 ```
 
-레이블은 효율적인 쿼리와 관제를 하도록 하며 UI와 CLI에서 사용하기 이상적입니다. 비식별 정보는 [어노테이션](/docs/concepts/overview/working-with-objects/annotations/)을 이용해 기록해야 합니다.
+레이블은 효율적인 쿼리와 관제를 하도록 하며 UI와 CLI에서 사용하기 이상적이다. 비식별 정보는 [어노테이션](/docs/concepts/overview/working-with-objects/annotations/)을 이용해 기록해야 한다.
 
 {{% /capture %}}
 
 
 {{% capture body %}}
 
-## 동기
-
-
-레이블을 사용하면 클라이언트가 매핑을 저장할 필요 없이 느슨하게 결합된 방식으로 자신의 조직 구조를 시스템 오브젝트에 매핑할 수 있습니다.
-
-
-서비스 디플로이먼트와 배치 프로세싱 파이프라인은 종종 다차원 엔티티일 때가 있습니다 (e.g., multiple partitions or deployments, multiple release tracks, multiple tiers, multiple micro-services per tier). 
+## 동기(Motivation)
 
 
 
-Management often requires cross-cutting operations, which breaks encapsulation of strictly hierarchical representations, especially rigid hierarchies determined by the infrastructure rather than by users.
+레이블을 사용하면 클라이언트가 매핑을 저장할 필요 없이 느슨하게 결합된 방식으로 자신의 조직 구조를 시스템 오브젝트에 매핑할 수 있다.
 
-Example labels:
+
+서비스 디플로이먼트와 배치 프로세싱 파이프라인은 종종 다차원 엔티티일 때가 있다 (e.g., multiple partitions or deployments, multiple release tracks, multiple tiers, multiple micro-services per tier). 관리는 크로스 커팅(cross-cutting) 작업이 필요한 경우가 많고, 이는 사용자 보다 인프라스트럭쳐에 의해 결정되는 엄격한 계층적 표현의 캡슐화를 깨뜨린다.
+
+레이블의 예시:
 
    * `"release" : "stable"`, `"release" : "canary"`
    * `"environment" : "dev"`, `"environment" : "qa"`, `"environment" : "production"`
@@ -46,9 +43,15 @@ Example labels:
    * `"partition" : "customerA"`, `"partition" : "customerB"`
    * `"track" : "daily"`, `"track" : "weekly"`
 
-These are just examples of commonly used labels; you are free to develop your own conventions. Keep in mind that label Key must be unique for a given object.
+이들은 일반적으로 사용되는 레이블의 예시일 뿐이다; 당신은 자신의 컨벤션을 자유롭게 개발할 수 있다. 레이블의 키는 주어진 오브젝트에 고유하다는 것을 명심해야 한다.
 
-## Syntax and character set
+## 구문과 문자 집합
+
+
+
+_레이블_ 은 키/값 쌍이다. 유효한 레이블 키는 두 개의 세그먼트가 있다: 선택적 접두사와 슬래시(`/`)로 구분된 이름(name).
+
+
 
 _Labels_ are key/value pairs. Valid label keys have two segments: an optional prefix and name, separated by a slash (`/`). The name segment is required and must be 63 characters or less, beginning and ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`), underscores (`_`), dots (`.`), and alphanumerics between. The prefix is optional. If specified, the prefix must be a DNS subdomain: a series of DNS labels separated by dots (`.`), not longer than 253 characters in total, followed by a slash (`/`).
 
