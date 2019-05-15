@@ -19,18 +19,24 @@ _레이블_ 은 파드와 같은 오브젝트에 연결된 키/값 쌍이다.
 }
 ```
 
-Labels allow for efficient queries and watches and are ideal for use in UIs and CLIs. Non-identifying information should be recorded using [annotations](/docs/concepts/overview/working-with-objects/annotations/).
+레이블은 효율적인 쿼리와 관제를 하도록 하며 UI와 CLI에서 사용하기 이상적입니다. 비식별 정보는 [어노테이션](/docs/concepts/overview/working-with-objects/annotations/)을 이용해 기록해야 합니다.
 
 {{% /capture %}}
 
 
 {{% capture body %}}
 
-## Motivation
+## 동기
 
-Labels enable users to map their own organizational structures onto system objects in a loosely coupled fashion, without requiring clients to store these mappings.
 
-Service deployments and batch processing pipelines are often multi-dimensional entities (e.g., multiple partitions or deployments, multiple release tracks, multiple tiers, multiple micro-services per tier). Management often requires cross-cutting operations, which breaks encapsulation of strictly hierarchical representations, especially rigid hierarchies determined by the infrastructure rather than by users.
+레이블을 사용하면 클라이언트가 매핑을 저장할 필요 없이 느슨하게 결합된 방식으로 자신의 조직 구조를 시스템 오브젝트에 매핑할 수 있습니다.
+
+
+서비스 디플로이먼트와 배치 프로세싱 파이프라인은 종종 다차원 엔티티일 때가 있습니다 (e.g., multiple partitions or deployments, multiple release tracks, multiple tiers, multiple micro-services per tier). 
+
+
+
+Management often requires cross-cutting operations, which breaks encapsulation of strictly hierarchical representations, especially rigid hierarchies determined by the infrastructure rather than by users.
 
 Example labels:
 
